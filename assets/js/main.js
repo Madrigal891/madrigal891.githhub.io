@@ -3,7 +3,24 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
 (function() {
 
 	"use strict";
@@ -47,15 +64,15 @@
 							'images/9.jpg': 'center',
 							'images/10.jpg': 'center',
 							'images/11.jpg': 'center',
+							'images/12.jpg': 'center',
 							'images/0.jpg': 'center'
 
 						},
 
 					// Delay.
-						delay: 6000
+						delay: 5000
 
 				};
-
 			// Vars.
 				var	pos = 0, lastPos = 0,
 					$wrapper, $bgs = [], $bg,
@@ -65,7 +82,6 @@
 				$wrapper = document.createElement('div');
 					$wrapper.id = 'bg';
 					$body.appendChild($wrapper);
-
 				for (k in settings.images) {
 
 					// Create BG.
